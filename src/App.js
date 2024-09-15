@@ -3,19 +3,34 @@ import { useState } from 'react';
 
 function App() {
 
-    const [tarefa, settarefa] = useState();
+    const [tarefa, setTarefa] = useState();
+    const [listaDeTarefas, setListaDeTarefas] = useState([]);
+
     const atualizaTarefa = (e) => {
-      settarefa(e.target.value);
+     setTarefa(e.target.value);
+    };
+
+    const adicionarTarefa = () => {
+      if(tarefa.trim() !== ''){
+        setListaDeTarefas([tarefa, ...listaDeTarefas]);
+        setTarefa('');
+      }
     };
 
   return (
     <div className="App">
       <header className="App-header">
         <h1>Lista de Tarefas</h1>
-        
+
         <input type='text' value={tarefa} onChange={atualizaTarefa} placeholder='Digite sua tarefa aqui'/>
 
-        <p>Você digitou: {tarefa}</p>
+        <button onClick={adicionarTarefa}>Adicionar</button>
+
+        <ul>
+          {listaDeTarefas.map((tarefa, index) => (
+            <li key={index}>{tarefa}</li>
+          ))}
+        </ul>
       </header>
     </div>
   );
