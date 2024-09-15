@@ -1,3 +1,4 @@
+import { FaEdit, FaPlus, FaSave, FaTrashAlt } from "react-icons/fa";
 import "./App.css";
 import { useState } from "react";
 
@@ -52,40 +53,61 @@ function App() {
       <header className="App-header">
         <h1>Lista de Tarefas</h1>
 
-        <input
-          type="text"
-          value={tarefa}
-          onChange={atualizaTarefa}
-          onKeyDown={enterPressionado}
-          placeholder="Digite sua tarefa aqui"
-        />
+        <div className="input-container">
+          <input
+            type="text"
+            value={tarefa}
+            onChange={atualizaTarefa}
+            onKeyDown={enterPressionado}
+            placeholder="Digite sua tarefa aqui"
+          />
 
-        <button onClick={adicionarTarefa}>Adicionar</button>
+          <button title="adicionar" onClick={adicionarTarefa}>
+            <FaPlus />
+          </button>
+        </div>
+        
+          <ul>
+          <div className="tarefas-container">
+            {listaDeTarefas.map((tarefa, index) => (
+              <li key={index}>
+                {editarIndex === index ? (
+                  <div className="input-container">
+                    <input
+                      type="text"
+                      value={novaTarefa}
+                      onKeyDown={enterPressionado}
+                      onChange={(e) => setNovaTarefa(e.target.value)}
+                    />
 
-        <ul>
-          {listaDeTarefas.map((tarefa, index) => (
-            <li key={index}>
-              {editarIndex === index ? (
-                <>
-                  <input
-                    type="text"
-                    value={novaTarefa}
-                    onKeyDown={enterPressionado}
-                    onChange={(e) => setNovaTarefa(e.target.value)}
-                  />
-
-                  <button onClick={salvarEdicao}>Salvar</button>
-                </>
-              ) : (
-                <>
-                  {tarefa}
-                  <button onClick={() => iniciarEdicao(index)}>Editar</button>
-                  <button onClick={() => removerTarefa(index)}>X</button>
-                </>
-              )}
-            </li>
-          ))}
-        </ul>
+                    <button title="salvar" onClick={salvarEdicao}>
+                      <FaSave />
+                    </button>
+                  </div>
+                ) : (
+                  <>
+                    <span className="tarefa-texto">{tarefa}</span>
+                    <button
+                      id="btnEditar"
+                      title="editar"
+                      onClick={() => iniciarEdicao(index)}
+                    >
+                      <FaEdit />
+                    </button>
+                    <button
+                      id="btnDeletar"
+                      title="deletar"
+                      onClick={() => removerTarefa(index)}
+                    >
+                      <FaTrashAlt />
+                    </button>
+                  </>
+                )}
+              </li>
+            ))}
+            </div>
+          </ul>
+        
       </header>
     </div>
   );

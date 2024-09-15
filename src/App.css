@@ -1,0 +1,92 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  color: #61dafb;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
+
+.input-container{
+  display: flex;
+  align-items: center;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+  padding: 10px;
+  border: 5px solid #61dafb;
+  border-radius: 4px;
+  font-size: 18px;
+}
+
+input[type="text"] {
+  padding: 10px;
+  font-size: 16px;
+  border: 5px solid #61dafb;
+  border-radius: 4px;
+  margin: 10px;
+}
+
+.tarefa-texto {
+  flex-grow: 1;
+  text-align: left;
+  margin-right: 10px;
+}
+
+button {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px;
+  font-size: 16px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 5px solid #61dafb;
+  background-color: #61dafb;
+}
+
+button:hover {
+  background-color: #282c34;
+  border: 5px solid #61dafb;
+}
+
+.tarefas-container{
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+#btnDeletar{
+  color: red;
+}
+
+#btnDeletar:hover{
+  background-color: red;
+  color:#61dafb;
+}
+
+#btnEditar{
+  color: green;
+}
+
+#btnEditar:hover{
+  background-color: green;
+  color:#61dafb;
+}
