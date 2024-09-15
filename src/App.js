@@ -22,12 +22,18 @@ function App() {
       setListaDeTarefas(novaLista);
     }
 
+    const enterPressionado = (e) => {
+      if(e.key === "Enter"){
+        adicionarTarefa();
+      }
+    }
+
   return (
     <div className="App">
       <header className="App-header">
         <h1>Lista de Tarefas</h1>
 
-        <input type='text' value={tarefa} onChange={atualizaTarefa} placeholder='Digite sua tarefa aqui'/>
+        <input type='text' value={tarefa} onChange={atualizaTarefa} onKeyDown={enterPressionado} placeholder='Digite sua tarefa aqui'/>
 
         <button onClick={adicionarTarefa}>Adicionar</button>
 
