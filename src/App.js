@@ -17,6 +17,11 @@ function App() {
       }
     };
 
+    const removerTarefa = (index) => {
+      const novaLista = listaDeTarefas.filter((_, i) => i !== index);
+      setListaDeTarefas(novaLista);
+    }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -28,7 +33,7 @@ function App() {
 
         <ul>
           {listaDeTarefas.map((tarefa, index) => (
-            <li key={index}>{tarefa}</li>
+            <li key={index}>{tarefa} <button onClick={()=> removerTarefa(index)}>X</button></li>
           ))}
         </ul>
       </header>
