@@ -20,11 +20,13 @@ function App() {
   };
 
   const removerTarefa = (index) => {
+    // Filtra a lista de tarefas, mantendo apenas as que não correspondem ao índice a ser removido.
     const novaLista = listaDeTarefas.filter((_, i) => i !== index);
     setListaDeTarefas(novaLista);
   };
 
   const enterPressionado = (e) => {
+    // Detecta se a tecla Enter foi pressionada para adicionar ou salvar uma tarefa
     if (e.key === "Enter") {
       adicionarTarefa();
       salvarEdicao();
@@ -36,8 +38,10 @@ function App() {
     setNovaTarefa(listaDeTarefas[index]);
   };
 
+
   const salvarEdicao = () => {
     if (novaTarefa.trim() !== "") {
+      // Cria uma nova lista com a tarefa editada com conteúdo.
       const novaLista = listaDeTarefas.map((tarefa, i) =>
         i === editarIndex ? novaTarefa : tarefa
       );
