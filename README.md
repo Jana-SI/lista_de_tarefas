@@ -1,4 +1,4 @@
-# Projeto Lista de Tarefas
+# Projeto Lista de Tarefas 📋
 
 ![projetoListaDeTarefas](/public/image.png)
 
